@@ -1,0 +1,20 @@
+package com.msb.dongbao.ums.service.impl;
+
+import com.baomidou.mybatisplus.extension.service.IService;
+import com.msb.dongbao.ums.entity.UmsMember;
+import com.msb.dongbao.ums.mapper.UmsMemberMapper;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.stereotype.Service;
+
+/**
+ * <p>
+ * 后台用户表 服务实现类
+ * </p>
+ *
+ * @author Clark
+ * @since 2022-03-06
+ */
+@Service
+public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember> implements IService<UmsMember> {
+
+}
