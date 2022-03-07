@@ -8,6 +8,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.msb.dongbao.ums.service.UmsMemberService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -26,8 +27,17 @@ public class UmsMemberServiceImpl implements UmsMemberService {
 
     @Override
     public String register(UserMemberRegisterParamDTO userMemberRegisterParamDTO) {
+        //DTO 转换成entity
         UmsMember umsMember = new UmsMember();
         BeanUtils.copyProperties(userMemberRegisterParamDTO,umsMember);
+
+        //Bcrypt加密
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String encode = bCryptPasswordEncoder.encode(userMemberRegisterParamDTO.getPassword());
+
+        //entity设置加密好的encode
+        //保存在持久层
+        umsMember.setPassword(encode);
         umsMemberMapper.insert(umsMember );
         return "success";
     }
