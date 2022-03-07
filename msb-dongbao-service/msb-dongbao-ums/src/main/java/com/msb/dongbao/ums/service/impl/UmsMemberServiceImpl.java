@@ -1,14 +1,12 @@
 package com.msb.dongbao.ums.service.impl;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.msb.dongbao.ums.entity.UmsMember;
-import com.msb.dongbao.ums.entity.dto.UserMemberRegisterParamDTO;
+import com.msb.dongbao.ums.entity.*;
+import com.msb.dongbao.ums.entity.dto.UmsMemberLoginParamDTO;
+import com.msb.dongbao.ums.entity.dto.UmsMemberRegisterParamDTO;
 import com.msb.dongbao.ums.mapper.UmsMemberMapper;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.msb.dongbao.ums.service.UmsMemberService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +28,17 @@ public class UmsMemberServiceImpl implements UmsMemberService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public String register(UserMemberRegisterParamDTO userMemberRegisterParamDTO) {
+    public String login(UmsMemberLoginParamDTO umsMemberLoginParamDTO) {
+        //DTO 转换成entity
+        UmsMember umsMember = new UmsMember();
+        BeanUtils.copyProperties(umsMemberLoginParamDTO,umsMember);
+
+
+        return null;
+    }
+
+    @Override
+    public String register(UmsMemberRegisterParamDTO userMemberRegisterParamDTO) {
         //DTO 转换成entity
         UmsMember umsMember = new UmsMember();
         BeanUtils.copyProperties(userMemberRegisterParamDTO,umsMember);

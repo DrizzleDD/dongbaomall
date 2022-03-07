@@ -14,7 +14,7 @@ import javax.validation.constraints.Size;
  */
 @Data
 @ToString
-public class UserMemberRegisterParamDTO {
+public class UmsMemberRegisterParamDTO {
 
     @Size(min = 1,max = 8,message = "用户名长度在1-8之间")
     private String username;

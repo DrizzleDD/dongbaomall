@@ -1,15 +1,13 @@
 package com.msb.dongbao.partal.web.controller;
 
-import com.msb.dongbao.ums.entity.dto.UserMemberRegisterParamDTO;
+import com.msb.dongbao.ums.entity.dto.UmsMemberLoginParamDTO;
+import com.msb.dongbao.ums.entity.dto.UmsMemberRegisterParamDTO;
 import com.msb.dongbao.ums.service.UmsMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.security.PublicKey;
 
 /**
  * @Auther: WZY
@@ -30,8 +28,14 @@ public class UserMemberController {
     }
 
     @GetMapping("/register")
-    public String register(@RequestBody UserMemberRegisterParamDTO userMemberRegisterParamDTO){
+    public String register(@RequestBody UmsMemberRegisterParamDTO userMemberRegisterParamDTO){
         umsMemberService.register(userMemberRegisterParamDTO);
+        return "register";
+    }
+
+    @GetMapping("/login")
+    public String login(@RequestBody UmsMemberLoginParamDTO umsMemberLoginParamDTO){
+
         return "register";
     }
 }
