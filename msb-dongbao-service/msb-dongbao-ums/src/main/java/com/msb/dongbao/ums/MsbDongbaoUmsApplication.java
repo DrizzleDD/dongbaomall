@@ -21,6 +21,7 @@ public class MsbDongbaoUmsApplication {
         SpringApplication.run(MsbDongbaoUmsApplication.class, args);
     }
 
+    //单例模式
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

@@ -9,6 +9,7 @@ import com.msb.dongbao.ums.service.UmsMemberService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -23,7 +24,10 @@ import org.springframework.stereotype.Service;
 public class UmsMemberServiceImpl implements UmsMemberService {
 
     @Autowired
-    UmsMemberMapper umsMemberMapper;
+    private UmsMemberMapper umsMemberMapper;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public String register(UserMemberRegisterParamDTO userMemberRegisterParamDTO) {
@@ -32,8 +36,7 @@ public class UmsMemberServiceImpl implements UmsMemberService {
         BeanUtils.copyProperties(userMemberRegisterParamDTO,umsMember);
 
         //Bcrypt加密
-        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-        String encode = bCryptPasswordEncoder.encode(userMemberRegisterParamDTO.getPassword());
+        String encode = passwordEncoder.encode(userMemberRegisterParamDTO.getPassword());
 
         //entity设置加密好的encode
         //保存在持久层
