@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.msb.dongbao.ums.entity.UmsMember;
 import com.msb.dongbao.ums.mapper.UmsMemberMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.msb.dongbao.ums.service.UmsMemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +17,13 @@ import org.springframework.stereotype.Service;
  * @since 2022-03-06
  */
 @Service
-public class UmsMemberServiceImpl extends ServiceImpl<UmsMemberMapper, UmsMember> implements IService<UmsMember> {
+public class UmsMemberServiceImpl implements UmsMemberService {
 
+    @Autowired
+    UmsMemberMapper umsMemberMapper;
+
+    @Override
+    public String register() {
+        return null;
+    }
 }

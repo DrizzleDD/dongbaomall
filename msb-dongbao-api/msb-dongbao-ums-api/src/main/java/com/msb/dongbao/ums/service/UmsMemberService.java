@@ -11,6 +11,8 @@ import com.msb.dongbao.ums.entity.UmsMember;
  * @author Clark
  * @since 2022-03-06
  */
-public interface UmsMemberService extends IService<UmsMember> {
+public interface UmsMemberService {
+
+    public String register();
 
 }
