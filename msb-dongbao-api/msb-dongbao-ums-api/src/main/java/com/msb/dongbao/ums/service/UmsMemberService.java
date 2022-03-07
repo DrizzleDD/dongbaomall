@@ -13,6 +13,6 @@ import com.msb.dongbao.ums.entity.UmsMember;
  */
 public interface UmsMemberService {
 
-    public String register();
+    String register();
 
 }

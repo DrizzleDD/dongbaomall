@@ -1,5 +1,6 @@
 package com.msb.dongbao.partal.web;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,7 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @Description: com.msb.dongbao.partal.web
  * @version: 1.0
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.msb")
+@MapperScan("com.msb.dongbao.ums.mapper")
 public class MsbDongbaoPortalWebApplication {
 
     public static void main(String[] args) {

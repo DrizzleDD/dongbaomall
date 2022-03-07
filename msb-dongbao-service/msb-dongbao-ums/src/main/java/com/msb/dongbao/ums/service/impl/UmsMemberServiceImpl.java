@@ -24,6 +24,9 @@ public class UmsMemberServiceImpl implements UmsMemberService {
 
     @Override
     public String register() {
-        return null;
+        UmsMember u = new UmsMember();
+        u.setNickName("ccc");
+        umsMemberMapper.insert(u);
+        return "success";
     }
 }
