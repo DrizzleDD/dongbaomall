@@ -31,7 +31,7 @@ public class UserMemberController {
 
     @GetMapping("/register")
     public String register(@RequestBody UserMemberRegisterParamDTO userMemberRegisterParamDTO){
-        umsMemberService.register();
+        umsMemberService.register(userMemberRegisterParamDTO);
         return "register";
     }
 }
