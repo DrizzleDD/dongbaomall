@@ -32,8 +32,16 @@ public class UmsMemberServiceImpl implements UmsMemberService {
         //根据用户名查询得到用户
         UmsMember umsMember = umsMemberMapper.selectByName(umsMemberLoginParamDTO.getUsername());
 
+        if(null != umsMember){
+            //得到数据库既存密码
+            String passwordDb = umsMember.getPassword();
+            //DTO里传来的密码和数据库既存密码对比，用passwordEncoder.matches()
+            if(!passwordEncoder.matches(umsMemberLoginParamDTO.getPassword(),passwordDb)){
+                return "密码不正确";
+            }
+        }
 
-        return null;
+        return "token";
     }
 
     @Override
