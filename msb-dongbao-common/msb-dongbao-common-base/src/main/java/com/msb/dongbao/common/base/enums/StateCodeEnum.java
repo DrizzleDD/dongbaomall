@@ -11,10 +11,18 @@ import lombok.Data;
 
 public enum StateCodeEnum {
 
+
+    /**
+     * 请求失败
+     */
+    FAIL(500,"请求失败"),
+
     /**
      * 请求成功
      */
-    SUCCESS(200,"请求成功");
+    SUCCESS(200,"请求成功")
+
+    ;
 
     private int code;
     private String msg;
