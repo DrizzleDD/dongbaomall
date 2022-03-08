@@ -39,6 +39,8 @@ public class UmsMemberServiceImpl implements UmsMemberService {
             if(!passwordEncoder.matches(umsMemberLoginParamDTO.getPassword(),passwordDb)){
                 return "密码不正确";
             }
+        }else {
+            return "用户不存在";
         }
 
         return "token";

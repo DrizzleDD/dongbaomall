@@ -4,10 +4,7 @@ import com.msb.dongbao.ums.entity.dto.UmsMemberLoginParamDTO;
 import com.msb.dongbao.ums.entity.dto.UmsMemberRegisterParamDTO;
 import com.msb.dongbao.ums.service.UmsMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Auther: WZY
@@ -27,15 +24,15 @@ public class UserMemberController {
         return "hello";
     }
 
-    @GetMapping("/register")
+    @PostMapping("/register")
     public String register(@RequestBody UmsMemberRegisterParamDTO userMemberRegisterParamDTO){
         umsMemberService.register(userMemberRegisterParamDTO);
         return "register";
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public String login(@RequestBody UmsMemberLoginParamDTO umsMemberLoginParamDTO){
-        umsMemberService.login(umsMemberLoginParamDTO);
-        return "login";
+
+        return umsMemberService.login(umsMemberLoginParamDTO);
     }
 }
