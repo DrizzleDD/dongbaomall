@@ -29,9 +29,8 @@ public class UmsMemberServiceImpl implements UmsMemberService {
 
     @Override
     public String login(UmsMemberLoginParamDTO umsMemberLoginParamDTO) {
-        //DTO 转换成entity
-        UmsMember umsMember = new UmsMember();
-        BeanUtils.copyProperties(umsMemberLoginParamDTO,umsMember);
+        //根据用户名查询得到用户
+        UmsMember umsMember = umsMemberMapper.selectByName(umsMemberLoginParamDTO.getUsername());
 
 
         return null;

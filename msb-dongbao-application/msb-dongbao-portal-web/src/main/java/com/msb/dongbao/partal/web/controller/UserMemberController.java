@@ -35,7 +35,7 @@ public class UserMemberController {
 
     @GetMapping("/login")
     public String login(@RequestBody UmsMemberLoginParamDTO umsMemberLoginParamDTO){
-
-        return "register";
+        umsMemberService.login(umsMemberLoginParamDTO);
+        return "login";
     }
 }
