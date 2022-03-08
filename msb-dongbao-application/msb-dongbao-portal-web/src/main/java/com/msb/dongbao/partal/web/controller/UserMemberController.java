@@ -7,6 +7,8 @@ import com.msb.dongbao.ums.service.UmsMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 /**
  * @Auther: WZY
  * @Date: 2022/3/6 - 03 - 06 - 15:21
@@ -26,7 +28,7 @@ public class UserMemberController {
     }
 
     @PostMapping("/register")
-    public ResultWrapper register(@RequestBody UmsMemberRegisterParamDTO userMemberRegisterParamDTO){
+    public ResultWrapper register(@RequestBody @Valid UmsMemberRegisterParamDTO userMemberRegisterParamDTO){
         umsMemberService.register(userMemberRegisterParamDTO);
         return ResultWrapper.getSuccessBuilder().data(null).build();
     }
