@@ -21,8 +21,9 @@ import java.util.ArrayList;
  * @version: 1.0
  */
 public class DongBaoGenerator {
-
-    public static void main(String[] args) {
+  public static void main(String[] args) {
+      int num = 8;
+      System.out.println(num);
         // 构建一个代码生成对象
         AutoGenerator mpg = new AutoGenerator();
 
